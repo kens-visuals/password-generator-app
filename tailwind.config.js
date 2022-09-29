@@ -40,6 +40,7 @@ module.exports = {
           },
         ],
       },
+      backgroundImage: { 'check-icon': "url('../assets/icon-check.svg')" },
     },
   },
   plugins: [],
