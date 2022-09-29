@@ -1,4 +1,4 @@
-export default function Input() {
+const Input = () => {
   return (
     <div className="relative">
       <span className="sr-only">Generated Password</span>
@@ -23,4 +23,6 @@ export default function Input() {
       </button>
     </div>
   );
-}
+};
+
+export default Input;
