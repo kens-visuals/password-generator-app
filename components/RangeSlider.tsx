@@ -44,7 +44,7 @@ const RangeSlider = () => {
           setSliderBg(e);
         }}
         style={{ background: rangeBg }}
-        className="h-2 w-full cursor-pointer appearance-none bg-green"
+        className="slider-thumb"
       />
 
       <CheckboxList />
