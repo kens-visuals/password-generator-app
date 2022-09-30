@@ -21,8 +21,8 @@
   }
 
   .slider-thumb::-webkit-slider-thumb {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: #e6e5ea;
     border: 2px solid transparent;
     border-radius: 50%;
@@ -39,8 +39,8 @@
   }
 
   .slider-thumb::-moz-range-thumb {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: #e6e5ea;
     border: 2px solid transparent;
     border-radius: 50%;
@@ -57,8 +57,8 @@
   }
 
   .slider-thumb::-ms-thumb {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: #e6e5ea;
     border: 2px solid transparent;
     border-radius: 50%;
