@@ -4,6 +4,7 @@ import Head from 'next/head';
 // Components
 import Input from '../components/Input';
 import RangeSlider from '../components/RangeSlider';
+import CheckboxList from '../components/CheckboxList';
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +26,37 @@ const Home: NextPage = () => {
         <div className="w-[90%] max-w-xl">
           <Input />
 
-          <RangeSlider />
+          <div className="mt-4 bg-primary-light p-4">
+            <RangeSlider />
+
+            <CheckboxList />
+
+            <div className="mb-4 flex items-center justify-between bg-primary p-3">
+              <span className="text-body uppercase text-secondary">
+                Strength
+              </span>
+
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-body uppercase text-secondary-light">
+                  Medium
+                </span>
+
+                <div className="flex items-center justify-between gap-2">
+                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
+                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
+                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
+                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="w-full border-2 border-transparent bg-green to-primary-light p-3 font-bold uppercase transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green"
+            >
+              Generate
+            </button>
+          </div>
         </div>
       </main>
     </div>

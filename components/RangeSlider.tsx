@@ -1,8 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 
-// Components
-import CheckboxList from './CheckboxList';
-
 const RangeSlider = () => {
   const [rangeBg, setRangeBg] = useState<string>(
     `linear-gradient(90deg,#A4FFAF ${50}%, #18171F ${50}%)`
@@ -27,7 +24,7 @@ const RangeSlider = () => {
   };
 
   return (
-    <div className="mt-4 bg-primary-light p-4">
+    <>
       <div className="flex items-center justify-between">
         <span className="font-bold text-secondary-light">Character Length</span>
         <span className="text-heading-md text-green">{range}</span>
@@ -46,9 +43,7 @@ const RangeSlider = () => {
         style={{ background: rangeBg }}
         className="slider-thumb"
       />
-
-      <CheckboxList />
-    </div>
+    </>
   );
 };
 
