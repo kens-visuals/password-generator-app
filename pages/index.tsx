@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 
             <button
               type="button"
-              className="w-full border-2 border-transparent bg-green to-primary-light p-3 font-bold uppercase transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green"
+              className="w-full border-2 border-transparent bg-green to-primary-light p-3 font-bold uppercase transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green focus:outline-dashed focus:outline-green"
             >
               Generate
             </button>

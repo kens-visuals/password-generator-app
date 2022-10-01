@@ -20,6 +20,10 @@
     appearance: none;
   }
 
+  .slider-thumb:focus {
+    outline: 2px dashed #a4ffaf;
+  }
+
   .slider-thumb::-webkit-slider-thumb {
     width: 1.3rem;
     height: 1.3rem;

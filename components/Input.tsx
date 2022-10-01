@@ -12,7 +12,7 @@ const Input = () => {
 
       <button
         type="button"
-        className="absolute top-1/2 right-4 -translate-y-1/2"
+        className="absolute top-1/2 right-4 -translate-y-1/2 focus:outline-dashed focus:outline-green"
       >
         <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
           <path
