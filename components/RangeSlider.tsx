@@ -1,12 +1,16 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 
-const RangeSlider = () => {
+interface RangeProps {
+  range: number;
+  setRange: (range: number) => void;
+}
+
+const RangeSlider = ({ range, setRange }: RangeProps) => {
   const [rangeBg, setRangeBg] = useState<string>(
     `linear-gradient(90deg,#A4FFAF ${50}%, #18171F ${50}%)`
   );
-  const [range, setRange] = useState<number>(10);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const handleRangeChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setRange(parseInt(event.target.value));
   };
 
@@ -37,7 +41,7 @@ const RangeSlider = () => {
         type="range"
         value={range}
         onChange={(e) => {
-          handleChange(e);
+          handleRangeChange(e);
           setSliderBg(e);
         }}
         style={{ background: rangeBg }}

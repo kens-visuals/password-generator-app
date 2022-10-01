@@ -1,4 +1,4 @@
-const Input = () => {
+const Input = ({ password }: { password: string }) => {
   return (
     <div className="relative">
       <span className="sr-only">Generated Password</span>
@@ -6,8 +6,9 @@ const Input = () => {
         disabled
         type="text"
         aria-disabled
+        value={password}
         placeholder="P4$5W0rD!"
-        className="w-full bg-primary-light p-4 text-heading-md placeholder:text-secondary-light/25"
+        className="w-full overflow-scroll bg-primary-light p-4 pr-20 text-heading-md text-secondary-light placeholder:text-secondary-light/25"
       />
 
       <button

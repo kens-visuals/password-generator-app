@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -5,8 +6,44 @@ import Head from 'next/head';
 import Input from '../components/Input';
 import RangeSlider from '../components/RangeSlider';
 import CheckboxList from '../components/CheckboxList';
+import Strength from '../components/Strength';
+
+/**
+ *
+ * If char length <= 5 && non of the options are selected: STRENGTH === TOO WEAK
+ * If char length <= 5 && only one of the options is selected: STRENGTH === TOO WEAK
+ * If char length <= 5 && only two of the options are selected: STRENGTH === WEAK
+ * If char length <= 5 && all of the options are selected: STRENGTH === WEAK
+ * If char length <= 10 && only one of the options are selected: STRENGTH === WEAK
+ * If char length <= 10 && all of the options are selected: STRENGTH === MEDIUM
+ * If char length <= 15 && two of the options are selected: STRENGTH === MEDIUM
+ * If char length <= 15 && all of the options are selected: STRENGTH === STRONG
+ * If char length <= 20 && one of the options is selected: STRENGTH === MEDIUM
+ * If char length <= 20 && two or more of the options are selected: STRENGTH === STRONG
+ *
+ */
 
 const Home: NextPage = () => {
+  const [range, setRange] = useState<number>(10);
+  const [password, setPassword] = useState<string>('');
+
+  const getRandomNumbers = (range: number): string => {
+    const alpha = Array.from(Array(94))
+      .map((e, i) => i + 33)
+      .map((el) => String.fromCharCode(el));
+
+    const alphabet = alpha
+      .map(
+        (x) =>
+          (x = alpha.join('').charAt(Math.floor(Math.random() * alpha.length)))
+      )
+      .join('');
+
+    return alphabet.slice(0, range);
+  };
+
+  console.log(password);
+
   return (
     <div>
       <Head>
@@ -24,34 +61,18 @@ const Home: NextPage = () => {
         </h1>
 
         <div className="w-[90%] max-w-xl">
-          <Input />
+          <Input password={password} />
 
           <div className="mt-4 bg-primary-light p-4">
-            <RangeSlider />
+            <RangeSlider range={range} setRange={setRange} />
 
             <CheckboxList />
 
-            <div className="mb-4 flex items-center justify-between bg-primary p-3">
-              <span className="text-body uppercase text-secondary">
-                Strength
-              </span>
-
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-body uppercase text-secondary-light">
-                  Medium
-                </span>
-
-                <div className="flex items-center justify-between gap-2">
-                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
-                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
-                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
-                  <div className="h-7 w-2.5 border-2 border-secondary-light"></div>
-                </div>
-              </div>
-            </div>
+            <Strength />
 
             <button
               type="button"
+              onClick={() => setPassword(getRandomNumbers(range))}
               className="w-full border-2 border-transparent bg-green to-primary-light p-3 font-bold uppercase transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green focus:outline-dashed focus:outline-green"
             >
               Generate
