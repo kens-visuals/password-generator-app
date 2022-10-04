@@ -1,7 +1,7 @@
 import useCopyToClipboard from '../hooks/useCopyToClipboard';
 
 const Input = ({ password }: { password: string }) => {
-  const [copy] = useCopyToClipboard();
+  const copy = useCopyToClipboard();
 
   return (
     <div className="relative">

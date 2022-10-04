@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -11,21 +11,6 @@ import Buttons from '../components/Buttons';
 
 // Helpers
 import { generatePassowrd } from '../utils/index';
-
-/**
- *
- * If char length <= 5 && non of the options are selected: STRENGTH === TOO WEAK
- * If char length <= 5 && only one of the options is selected: STRENGTH === TOO WEAK
- * If char length <= 5 && only two of the options are selected: STRENGTH === WEAK
- * If char length <= 5 && all of the options are selected: STRENGTH === WEAK
- * If char length <= 10 && only one of the options are selected: STRENGTH === WEAK
- * If char length <= 10 && all of the options are selected: STRENGTH === MEDIUM
- * If char length <= 15 && two of the options are selected: STRENGTH === MEDIUM
- * If char length <= 15 && all of the options are selected: STRENGTH === STRONG
- * If char length <= 20 && one of the options is selected: STRENGTH === MEDIUM
- * If char length <= 20 && two or more of the options are selected: STRENGTH === STRONG
- *
- */
 
 // Interfaces
 interface CheckboxOptions {
@@ -85,7 +70,7 @@ const Home: NextPage = () => {
 
             <CheckboxList options={options} setOptions={setOptions} />
 
-            <Strength />
+            <Strength password={password} />
 
             <Buttons
               handleGenerateClick={handleGenerateClick}
