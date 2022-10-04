@@ -1,4 +1,8 @@
+import useCopyToClipboard from '../hooks/useCopyToClipboard';
+
 const Input = ({ password }: { password: string }) => {
+  const [copy] = useCopyToClipboard();
+
   return (
     <div className="relative">
       <span className="sr-only">Generated Password</span>
@@ -13,6 +17,8 @@ const Input = ({ password }: { password: string }) => {
 
       <button
         type="button"
+        aria-label="Copy"
+        onClick={() => copy(password)}
         className="absolute top-1/2 right-4 -translate-y-1/2 focus:outline-dashed focus:outline-green"
       >
         <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">

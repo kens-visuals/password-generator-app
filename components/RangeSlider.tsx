@@ -30,19 +30,21 @@ const RangeSlider = ({ range, setRange }: RangeProps) => {
         <span className="text-heading-md text-green">{range}</span>
       </div>
 
-      <input
-        min="8"
-        max="28"
-        step="1"
-        type="range"
-        value={range}
-        onChange={(e) => {
-          handleRangeChange(e);
-          handleSliderBg(e);
-        }}
-        style={{ background: rangeBg }}
-        className="slider-thumb"
-      />
+      <label>
+        <input
+          min="8"
+          max="28"
+          step="1"
+          type="range"
+          value={range}
+          onChange={(e) => {
+            handleRangeChange(e);
+            handleSliderBg(e);
+          }}
+          style={{ background: rangeBg }}
+          className="slider-thumb"
+        />
+      </label>
     </>
   );
 };
