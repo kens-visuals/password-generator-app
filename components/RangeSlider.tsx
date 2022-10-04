@@ -1,4 +1,7 @@
-import { ChangeEvent, useMemo, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+
+// Helpers
+import { setSliderBg } from '../utils/index';
 
 interface RangeProps {
   range: number;
@@ -14,35 +17,28 @@ const RangeSlider = ({ range, setRange }: RangeProps) => {
     setRange(parseInt(event.target.value));
   };
 
-  const setSliderBg = (event: ChangeEvent<HTMLInputElement>): void => {
-    const { value, min, max } = event.target;
-    const bgPercentage: number =
-      ((parseInt(value) - parseInt(min)) / (parseInt(max) - parseInt(min))) *
-      100;
+  const handleSliderBg = (event: ChangeEvent<HTMLInputElement>): void => {
+    const bgColor = setSliderBg(event);
 
-    const backgroundColor = `linear-gradient(90deg,
-        #A4FFAF ${bgPercentage}%,
-        #18171F ${bgPercentage}%)`;
-
-    setRangeBg(backgroundColor);
+    setRangeBg(bgColor);
   };
 
   return (
     <>
       <div className="flex items-center justify-between">
-        <span className="font-bold text-secondary-light">Character Length</span>
+        <span className="font-bold text-secondary-light">Password Length</span>
         <span className="text-heading-md text-green">{range}</span>
       </div>
 
       <input
-        min="1"
-        max="20"
+        min="8"
+        max="28"
         step="1"
         type="range"
         value={range}
         onChange={(e) => {
           handleRangeChange(e);
-          setSliderBg(e);
+          handleSliderBg(e);
         }}
         style={{ background: rangeBg }}
         className="slider-thumb"

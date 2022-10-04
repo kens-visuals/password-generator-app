@@ -1,36 +1,17 @@
-import { useState } from 'react';
-
 // Components
 import Checkbox from './Checkbox';
 
-// Interfaces
 interface CheckboxOptions {
   name: string;
   isChecked: boolean;
 }
 
-const initialValue: CheckboxOptions[] = [
-  {
-    name: 'Include Uppercase Letters',
-    isChecked: true,
-  },
-  {
-    name: 'Include Lowercase Letters',
-    isChecked: true,
-  },
-  {
-    name: 'Include Numbers',
-    isChecked: false,
-  },
-  {
-    name: 'Include Symbols',
-    isChecked: false,
-  },
-];
+interface CheckboxListProps {
+  options: CheckboxOptions[];
+  setOptions: (options: CheckboxOptions[]) => void;
+}
 
-const CheckboxList = () => {
-  const [options, setOptions] = useState<CheckboxOptions[]>(initialValue);
-
+const CheckboxList = ({ options, setOptions }: CheckboxListProps) => {
   const handleChange = (item: CheckboxOptions) => {
     setOptions(options.map((opt) => (opt.name === item.name ? item : opt)));
   };

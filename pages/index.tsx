@@ -8,6 +8,9 @@ import RangeSlider from '../components/RangeSlider';
 import CheckboxList from '../components/CheckboxList';
 import Strength from '../components/Strength';
 
+// Helpers
+import { generatePassowrd } from '../utils/index';
+
 /**
  *
  * If char length <= 5 && non of the options are selected: STRENGTH === TOO WEAK
@@ -23,26 +26,39 @@ import Strength from '../components/Strength';
  *
  */
 
+// Interfaces
+interface CheckboxOptions {
+  name: string;
+  isChecked: boolean;
+}
+
+const initialValue: CheckboxOptions[] = [
+  {
+    name: 'Include Uppercase Letters',
+    isChecked: true,
+  },
+  {
+    name: 'Include Lowercase Letters',
+    isChecked: true,
+  },
+  {
+    name: 'Include Numbers',
+    isChecked: false,
+  },
+  {
+    name: 'Include Symbols',
+    isChecked: false,
+  },
+];
+
 const Home: NextPage = () => {
-  const [range, setRange] = useState<number>(10);
+  const [range, setRange] = useState<number>(18);
   const [password, setPassword] = useState<string>('');
+  const [options, setOptions] = useState<CheckboxOptions[]>(initialValue);
 
-  const getRandomNumbers = (range: number): string => {
-    const alpha = Array.from(Array(94))
-      .map((e, i) => i + 33)
-      .map((el) => String.fromCharCode(el));
-
-    const alphabet = alpha
-      .map(
-        (x) =>
-          (x = alpha.join('').charAt(Math.floor(Math.random() * alpha.length)))
-      )
-      .join('');
-
-    return alphabet.slice(0, range);
-  };
-
-  console.log(password);
+  const handleGenerateClick = () =>
+    setPassword(generatePassowrd(range, options));
+  const handleResetClick = () => setPassword('');
 
   return (
     <div>
@@ -66,16 +82,23 @@ const Home: NextPage = () => {
           <div className="mt-4 bg-primary-light p-4">
             <RangeSlider range={range} setRange={setRange} />
 
-            <CheckboxList />
+            <CheckboxList options={options} setOptions={setOptions} />
 
             <Strength />
 
             <button
               type="button"
-              onClick={() => setPassword(getRandomNumbers(range))}
-              className="w-full border-2 border-transparent bg-green to-primary-light p-3 font-bold uppercase transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green focus:outline-dashed focus:outline-green"
+              onClick={handleGenerateClick}
+              className="w-full border-2 border-transparent bg-green p-3 font-bold uppercase text-primary-light transition-all duration-300 hover:border-green hover:bg-primary-light hover:text-green focus:outline-dashed focus:outline-green"
             >
               Generate
+            </button>
+            <button
+              type="button"
+              onClick={handleResetClick}
+              className="mt-4 w-full border-2 border-green bg-transparent p-3 font-bold uppercase text-green transition-all duration-300 hover:border-green hover:bg-green hover:text-primary-light focus:outline-dashed focus:outline-green"
+            >
+              Reset
             </button>
           </div>
         </div>
