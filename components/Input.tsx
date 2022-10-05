@@ -9,7 +9,6 @@ const Input = ({ password }: { password: string }) => {
       <input
         disabled
         type="text"
-        aria-disabled
         value={password}
         placeholder="P4$5W0rD!"
         className="w-full overflow-scroll bg-primary-light p-4 pr-20 text-heading-md text-secondary-light placeholder:text-secondary-light/25 md:p-6 md:text-heading-lg"
