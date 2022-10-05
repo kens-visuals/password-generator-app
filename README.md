@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [https://password-generator-app-tawny.vercel.app/](https://password-generator-app-tawny.vercel.app/)
-- Solution URL: [TO_BE_UPDATED](TO_BE_UPDATED)
+- Solution URL: [https://www.frontendmentor.io/solutions/password-generator-app-built-with-nextjs-typescript-and-tailwindcs-JoP9yiiE06](https://www.frontendmentor.io/solutions/password-generator-app-built-with-nextjs-typescript-and-tailwindcs-JoP9yiiE06)
 
 ## My process
 
