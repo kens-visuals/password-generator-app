@@ -26,7 +26,9 @@ const RangeSlider = ({ range, setRange }: RangeProps) => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <span className="font-bold text-secondary-light">Password Length</span>
+        <span className="font-bold text-secondary-light md:text-body">
+          Password Length
+        </span>
         <span className="text-heading-md text-green">{range}</span>
       </div>
 

@@ -65,7 +65,7 @@ const Home: NextPage = () => {
         <div className="w-[90%] max-w-xl">
           <Input password={password} />
 
-          <div className="mt-4 bg-primary-light p-4">
+          <div className="mt-4 bg-primary-light p-4 md:p-8">
             <RangeSlider range={range} setRange={setRange} />
 
             <CheckboxList options={options} setOptions={setOptions} />

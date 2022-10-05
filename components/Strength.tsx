@@ -36,7 +36,7 @@ const Strength = ({ password }: StrengthProps) => {
   const { value, length } = passwordStrength(password, customCheckValues);
 
   return (
-    <div className="mb-4 flex items-center justify-between bg-primary p-3">
+    <div className="mb-4 flex items-center justify-between bg-primary p-3 md:p-6">
       <span className="text-body uppercase text-secondary">Strength</span>
 
       {length === 0 ? (

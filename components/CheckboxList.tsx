@@ -21,7 +21,9 @@ const CheckboxList = ({ options, setOptions }: CheckboxListProps) => {
       {options.map(({ name, isChecked }) => (
         <li key={name} className="flex items-center">
           <Checkbox obj={{ name, isChecked }} handleChange={handleChange} />
-          <span className="w-full text-secondary-light">{name}</span>
+          <span className="w-full text-secondary-light md:text-body">
+            {name}
+          </span>
         </li>
       ))}
     </ul>
