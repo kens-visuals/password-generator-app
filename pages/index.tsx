@@ -58,7 +58,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex min-h-screen flex-col items-center justify-center bg-primary">
-        <h1 className="mb-4 text-center text-body text-secondary">
+        <h1 className="mb-4 text-center text-body text-secondary md:mb-6 md:text-heading-md">
           Password Generator
         </h1>
 
